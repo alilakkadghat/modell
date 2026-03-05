@@ -1,0 +1,45 @@
+STRESS WAVE PROPAGATION VISUALIZERCreate a rectangular canvas (~500×300px) showing a cross-section of a composite material target (draw it as a layered rectangle filling the canvas). When the user clicks "FIRE STRESS WAVE", animate a circular wavefront expanding outward from the left edge impact point:
+The wavefront is rendered as concentric rings color-coded by pressure magnitude: deep red at the leading compression front, transitioning through orange → yellow → cyan → dark blue in the rarefaction tail behind it
+As the wave hits each material layer boundary (draw 5 horizontal layer lines across the canvas), it partially reflects backward (draw a secondary ring moving left) and partially transmits forward (slightly attenuated ring continuing right) — show both simultaneously
+In the 15° helicoidal zone (mark a region in the right half of the canvas with a label), the wavefront visibly distorts — it should spread laterally and lose sharp circularity, showing energy being redirected across fiber planes. Achieve this by making the wave expand faster along the fiber angle direction than perpendicular to it (elliptical distortion rotating with depth)
+Show a live pressure readout in MPa next to the wavefront peak that decreases as the wave travels (starts at ~800 MPa, decays exponentially)
+Add a color scale legend bar on the right side labeled "PRESSURE (MPa)" going from 0 to 800
+Below the canvas show two small line graphs side by side updating in real time: left graph shows pressure vs distance for standard material, right graph shows pressure vs distance for helicoidal material — the helicoidal one should show a lower, broader peak demonstrating energy spreading
+
+Here's the full prompt you can paste into Replit Agent:
+
+Add the following 8 new panels/features to the existing Mantis Shrimp Dactyl Club Impact Simulator HTML file. Maintain the same design system: dark navy background (#020810), cyan (#00d4ff) primary accent, orange (#ff6b00) secondary, chartreuse (#7fff00) for positive results, Orbitron font for headers, Share Tech Mono for data, Rajdhani for body text. All panels are canvas-based unless stated otherwise. Add them as new sections below the existing content.
+
+1. STRESS WAVE PROPAGATION VISUALIZER
+Create a rectangular canvas (~500×300px) showing a cross-section of a composite material target (draw it as a layered rectangle filling the canvas). When the user clicks "FIRE STRESS WAVE", animate a circular wavefront expanding outward from the left edge impact point:
+
+The wavefront is rendered as concentric rings color-coded by pressure magnitude: deep red at the leading compression front, transitioning through orange → yellow → cyan → dark blue in the rarefaction tail behind it
+As the wave hits each material layer boundary (draw 5 horizontal layer lines across the canvas), it partially reflects backward (draw a secondary ring moving left) and partially transmits forward (slightly attenuated ring continuing right) — show both simultaneously
+In the 15° helicoidal zone (mark a region in the right half of the canvas with a label), the wavefront visibly distorts — it should spread laterally and lose sharp circularity, showing energy being redirected across fiber planes. Achieve this by making the wave expand faster along the fiber angle direction than perpendicular to it (elliptical distortion rotating with depth)
+Show a live pressure readout in MPa next to the wavefront peak that decreases as the wave travels (starts at ~800 MPa, decays exponentially)
+Add a color scale legend bar on the right side labeled "PRESSURE (MPa)" going from 0 to 800
+Below the canvas show two small line graphs side by side updating in real time: left graph shows pressure vs distance for standard material, right graph shows pressure vs distance for helicoidal material — the helicoidal one should show a lower, broader peak demonstrating energy spreading
+
+
+2. CAVITATION BUBBLE LIFECYCLE PANEL
+Create a dedicated canvas (~500×320px) showing the full physical lifecycle of a cavitation bubble with 5 clearly labeled stages across the canvas width:
+
+Stage 1 — Nucleation: draw a tiny circle (r=3px) at a point, surrounded by faint motion blur lines indicating the dactyl club just passed. Label: "NUCLEATION — Low pressure zone forms behind strike"
+Stage 2 — Growth: animate the circle expanding rapidly to r=40px over ~0.8 seconds. Show the surrounding water molecules being pushed outward as faint radial lines. Pressure readout: dropping from 101 kPa to ~3.5 kPa (vapor pressure of water)
+Stage 3 — Maximum expansion: the bubble is at max size (r=40px), drawn with a gradient (dark center, bright cyan rim). Show internal vapor with a wispy texture. Label pressure: "3.5 kPa — VAPOR PRESSURE THRESHOLD". Add a pulsing glow.
+Stage 4 — Collapse: animate the bubble shrinking violently back to near-zero over ~0.3 seconds (much faster than growth). As it collapses, draw bright radiating shockwave rings expanding outward from the collapse point. Color them white → cyan → fading blue. Show temperature readout spiking: "~5000 K — SONOLUMINESCENCE THRESHOLD"
+Stage 5 — Secondary shockwave: show the collapsed point emitting a final pressure pulse ring expanding outward, colored red-orange. Label: "SECONDARY IMPACT — Additional ~400-600 N force delivered". Show a small force spike graph beside it.
+
+Add a timeline scrubber bar below the canvas so the user can drag to any point in the lifecycle. Show total lifecycle duration: "~300 microseconds". Add a "PLAY / PAUSE" button and a speed toggle (0.5× / 1× / 2×). Include a pressure vs time graph below showing the characteristic double-peak: first peak for mechanical strike (~1500N), trough, then second peak for cavitation collapse (~500N).
+
+3D ROTATING HELICOIDAL STACK
+Create a canvas (~480×400px) rendering a pseudo-3D isometric/perspective projection of the Bouligand helicoidal fiber stack. Use only vanilla JS canvas (no Three.js):
+
+Draw 16 stacked rectangular layers, each slightly offset in Y (isometric projection) to create a 3D stack appearance. Each layer is a parallelogram in screen space.
+Each layer has parallel fiber lines drawn across its face, rotated by 15° more than the layer below it (cumulative rotation). The fibers should visually wrap around the top face of each parallelogram.
+Color each layer with a hue cycling through the spectrum (HSL with L=50%, S=60%) so each layer is a distinct but harmonious color.
+The entire stack continuously auto-rotates around the vertical axis — update the isometric projection angle over time to simulate rotation. The user can also click-drag horizontally to manually rotate.
+When the user hovers over a layer, highlight it in white/bright cyan and show a tooltip: layer number, cumulative fiber angle, and the material property at that depth (e.g. "Layer 7 — 105° fiber angle — Impact region: periodic mineral bridges active")
+Add a "SHOW CRACK PATH" toggle button. When enabled, draw a red crack line threading through the layers at an angle, visibly deflecting and twisting as it passes each layer boundary — demonstrating in 3D how the crack cannot propagate straight through.
+Add axis labels: X, Y, Z with small arrow indicators. Label the stack: "BOULIGAND ARCHITECTURE — 15° rotation per layer"
+Show a small rotation angle readout in the corner (e.g. "ROT: 47°")
