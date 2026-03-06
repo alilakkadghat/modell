@@ -7,9 +7,9 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { name: "Anatomy", href: "#anatomy" },
-    { name: "Abilities", href: "#stats" },
-    { name: "Habitat", href: "#habitat" },
+    { name: "Impact Tester", href: "#impact" },
+    { name: "Projectile Lab", href: "#projectile" },
+    { name: "Shell Strength", href: "#shell" },
   ];
 
   return (
